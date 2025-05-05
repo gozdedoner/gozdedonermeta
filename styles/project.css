@@ -277,3 +277,84 @@ h3 {
     left: 0;
   }
 }
+
+@media (max-width: 1024px) {
+  .container,
+  .subcontainer {
+    width: 95%;
+  }
+
+  #slider {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .slide-img {
+    height: 200px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .subcontainer {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .slide-img {
+    height: 160px;
+  }
+
+  .navbar {
+    flex-direction: row;
+    padding: 0 16px;
+  }
+
+  .metaverse-icon {
+    margin-left: 10px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 0.9rem;
+  }
+
+  .social-media {
+    position: static;
+    margin-top: 30px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-img {
+    height: 140px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  h3 {
+    font-size: 0.85rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  #slider {
+    padding: 10px 0;
+  }
+}
