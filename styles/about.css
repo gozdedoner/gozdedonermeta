@@ -251,3 +251,26 @@ a {
     left: 0;
   }
 }
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .content-box {
+    flex-direction: column;
+    align-items: center;
+  }
+}
