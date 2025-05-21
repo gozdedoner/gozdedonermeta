@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -19,11 +20,8 @@ a {
   --clr-neutral-06: rgb(24, 21, 21);
 }
 
-/* --navbar--*/
-
 header {
   background-color: var(--tertiary-color);
-
   font-family: "Poppins", sans-serif;
 }
 
@@ -73,7 +71,6 @@ a {
 
 .nav-link {
   font-size: 1.1rem;
-
   transition: 0.7s ease;
 }
 
@@ -91,7 +88,6 @@ a {
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: var(--clr-neutral-01);
 }
@@ -99,8 +95,6 @@ a {
 .bar:hover {
   color: var(--secondry-color);
 }
-
-/*-main */
 
 .welcome-box {
   text-align: center;
@@ -149,7 +143,6 @@ a {
   height: 200px;
   margin: auto;
   margin-top: 1%;
-
   border: 2px solid var(--clr-neutral-03);
   box-shadow: 2px 2px 4px 4px var(--secondry-color);
   display: flex;
@@ -159,15 +152,13 @@ a {
 
 @keyframes glow {
   0% {
-    text-shadow: 0 0 20px var(--tertiary-color), 0 0 30px var(--secondry-color),
-      0 0 30px var(--primary-color);
+    text-shadow: 0 0 20px var(--tertiary-color), 0 0 30px var(--secondry-color), 0 0 30px var(--primary-color);
   }
   50% {
     text-shadow: none;
   }
   100% {
-    text-shadow: 0 0 20px var(--secondry-color), 0 0 30px var(--secondry-color),
-      0 0 30px var(--secondry-color);
+    text-shadow: 0 0 20px var(--secondry-color), 0 0 30px var(--secondry-color), 0 0 30px var(--secondry-color);
   }
 }
 
@@ -179,8 +170,6 @@ a {
   text-shadow: 4px 4px 8px var(--secondry-color);
   animation: glow 2s ease-in-out infinite;
 }
-
-/* --footer-- */
 
 .social-media {
   position: absolute;
@@ -207,8 +196,12 @@ a {
   transition: 0.4s;
 }
 
-.social-media .facebook a:hover {
-  background-color: var(--clr-neutral-03);
+.social-media .facebook a:hover,
+.social-media .twitter a:hover,
+.social-media .instagram a:hover,
+.social-media .youtube a:hover,
+.social-media .linkedin a:hover {
+  background-color: var(--primary-color);
 }
 
 .social-media a i {
@@ -219,25 +212,6 @@ a {
   transform: scale(1.6) rotate(360deg);
 }
 
-.social-media .twitter a:hover {
-  background-color: var(--primary-color);
-}
-
-.social-media .instagram a:hover {
-  background-color: var(--primary-color);
-}
-
-.social-media .youtube a:hover {
-  background-color: var(--primary-color);
-}
-
-.social-media .linkedin a:hover {
-  background-color: var(--primary-color);
-}
-
-/* --media-- */
-
-/* --footer--*/
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -256,8 +230,9 @@ a {
   }
 
   .nav-menu {
+    width: 100%;
     position: fixed;
-    left: -100px;
+    left: -100%;
     top: 70px;
     gap: 0;
     flex-direction: column;
@@ -266,17 +241,14 @@ a {
     transition: 0.3s;
   }
 
+  .nav-menu.active {
+    left: 0;
+  }
+
   .nav-item {
     margin: 16px 0;
   }
 
-  .nav-menu.active {
-    left: 0;
-  }
-}
-
-/* ---------- Responsive Design ---------- */
-@media (max-width: 768px) {
   .container {
     width: 95%;
     padding: 10px;
@@ -295,5 +267,23 @@ a {
   .content-box {
     flex-direction: column;
     align-items: center;
+  }
+
+  .welcome-text {
+    font-size: 20px;
+    padding: 0 15px;
+  }
+
+  .second-text {
+    font-size: 1.4rem;
+    padding: 0 15px;
+  }
+
+  #text-container {
+    width: 95%;
+    height: auto;
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
   }
 }

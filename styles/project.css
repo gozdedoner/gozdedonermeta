@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -29,7 +30,6 @@ a {
 
 header {
   background-color: var(--tertiary-color);
-
   font-family: "Poppins", sans-serif;
 }
 
@@ -79,7 +79,6 @@ a {
 
 .nav-link {
   font-size: 1.1rem;
-
   transition: 0.7s ease;
 }
 
@@ -97,7 +96,6 @@ a {
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-color: var(--clr-neutral-01);
 }
@@ -170,7 +168,6 @@ h3 {
   transform: scale(1);
 }
 
-/*--main-- */
 @media (max-width: 1600px) {
   .container {
     width: 100%;
@@ -178,7 +175,6 @@ h3 {
 }
 
 /* --footer-- */
-
 .media {
   border: 2px solid var(--primary-color);
   height: 20px;
@@ -222,25 +218,13 @@ h3 {
   transform: scale(1.6) rotate(360deg);
 }
 
-.social-media .twitter a:hover {
-  background-color: var(--primary-color);
-}
-
-.social-media .instagram a:hover {
-  background-color: var(--primary-color);
-}
-
-.social-media .youtube a:hover {
-  background-color: var(--primary-color);
-}
-
+.social-media .twitter a:hover,
+.social-media .instagram a:hover,
+.social-media .youtube a:hover,
 .social-media .linkedin a:hover {
   background-color: var(--primary-color);
 }
 
-/* --media-- */
-
-/* --footer--*/
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -269,12 +253,12 @@ h3 {
     transition: 0.3s;
   }
 
-  .nav-item {
-    margin: 16px 0;
-  }
-
   .nav-menu.active {
     left: 0;
+  }
+
+  .nav-item {
+    margin: 16px 0;
   }
 }
 
