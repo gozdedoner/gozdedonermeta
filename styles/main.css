@@ -1,10 +1,16 @@
-
 * {
   box-sizing: border-box;
 }
 
 a {
   text-decoration: none;
+}
+
+/* Genel resim kuralı - taşmaları engellemek için */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Resim altındaki olası boşlukları engeller */
 }
 
 :root {
@@ -23,12 +29,17 @@ a {
 header {
   background-color: var(--tertiary-color);
   font-family: "Poppins", sans-serif;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 li {
   list-style: none;
 }
 
+/* a etiketi için renk tanımı :root sonrası daha uygun olabilir veya burada kalabilir */
 a {
   color: var(--clr-neutral-01);
 }
@@ -49,7 +60,6 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  margin-right: 80px;
 }
 
 .nav-menu {
@@ -57,7 +67,6 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  z-index: 999;
 }
 
 .nav-branding {
@@ -93,20 +102,20 @@ a {
 }
 
 .bar:hover {
-  color: var(--secondry-color);
+  background-color: var(--secondry-color);
 }
 
 .welcome-box {
   text-align: center;
   padding: 20px;
   position: relative;
-  margin: 80px auto;
+  margin: 80px auto; /* Mobil için bu margin medya sorgusunda ayarlanabilir */
 }
 
 .welcome-text {
   font-family: "Poppins", sans-serif;
   color: var(--clr-neutral-01);
-  font-size: 30px;
+  font-size: 30px; /* Mobil için medya sorgusunda ayarlanacak */
   margin-top: 20px;
   text-shadow: 1px 1px 2px var(--secondry-color);
   animation: fadeIn 2s ease-in-out;
@@ -132,6 +141,7 @@ a {
   text-align: center;
   font-family: "Poppins", sans-serif;
   color: var(--clr-neutral-02);
+  /* Mobil için genişlik veya margin ayarı gerekebilir */
 }
 
 .meta-box strong {
@@ -139,10 +149,10 @@ a {
 }
 
 #text-container {
-  width: 600px;
-  height: 200px;
+  width: 600px; /* Mobil için medya sorgusunda ayarlanacak */
+  height: 200px; /* Mobil için 'auto' veya farklı bir değer olabilir */
   margin: auto;
-  margin-top: 1%;
+  margin-top: 1%; /* Mobil için farklı bir değer olabilir */
   border: 2px solid var(--clr-neutral-03);
   box-shadow: 2px 2px 4px 4px var(--secondry-color);
   display: flex;
@@ -152,19 +162,21 @@ a {
 
 @keyframes glow {
   0% {
-    text-shadow: 0 0 20px var(--tertiary-color), 0 0 30px var(--secondry-color), 0 0 30px var(--primary-color);
+    text-shadow: 0 0 20px var(--tertiary-color), 0 0 30px var(--secondry-color),
+      0 0 30px var(--primary-color);
   }
   50% {
     text-shadow: none;
   }
   100% {
-    text-shadow: 0 0 20px var(--secondry-color), 0 0 30px var(--secondry-color), 0 0 30px var(--secondry-color);
+    text-shadow: 0 0 20px var(--secondry-color), 0 0 30px var(--secondry-color),
+      0 0 30px var(--secondry-color);
   }
 }
 
 .second-text {
   color: var(--clr-neutral-01);
-  font-size: 2.2rem;
+  font-size: 2.2rem; /* Mobil için medya sorgusunda ayarlanacak */
   font-weight: bold;
   margin: 10px 0;
   text-shadow: 4px 4px 8px var(--secondry-color);
@@ -176,10 +188,12 @@ a {
   top: 93%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* Mobil için 'position' veya 'top' değeri değişebilir, footer'a göre ayarlanmalı */
+  /* width: 100%; // Eğer taşma yaparsa ikonların alt alta gelmesi için düzenlenebilir */
 }
 
 .social-media div {
-  display: inline;
+  display: inline; /* Ya da inline-block daha iyi kontrol sağlayabilir */
 }
 
 .social-media div a {
@@ -212,78 +226,129 @@ a {
   transform: scale(1.6) rotate(360deg);
 }
 
+/* === Lightbox Modal === */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ya da width: 100%; height: 100%; */
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+#lightbox img:hover {
+  transform: scale(1.02);
+}
+
+/* === Hamburger Menü ve Mobil Görünüm === */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
   .nav-menu {
-    width: 100%;
     position: fixed;
     left: -100%;
-    top: 70px;
-    gap: 0;
+    top: 70px; /* Header yüksekliğine göre ayarlı olduğundan emin olun */
     flex-direction: column;
-    background-color: var(--clr-neutral-03);
+    background-color: var(--tertiary-color);
+    width: 100%;
     text-align: center;
-    transition: 0.3s;
+    transition: left 0.3s ease-in-out;
+    padding: 20px 0;
+    gap: 25px;
+    z-index: 999;
   }
 
   .nav-menu.active {
     left: 0;
   }
 
+  .hamburger {
+    display: block;
+    z-index: 1001;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .nav-item {
-    margin: 16px 0;
+    width: 100%;
   }
 
-  .container {
-    width: 95%;
-    padding: 10px;
+  .nav-link {
+    display: block;
+    padding: 10px 0;
   }
 
-  h1 {
-    font-size: 1.4rem;
-    text-align: center;
+  .navbar {
+    margin-right: 0;
+    padding: 0 15px;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  .metaverse-icon {
+    margin-left: 15px;
   }
 
-  .content-box {
-    flex-direction: column;
-    align-items: center;
+  /* Yatay kaymayı engellemek ve mobil uyumu artırmak için eklenen/düzenlenen stiller */
+  #text-container {
+    width: 90%; /* Genişliği esnek hale getirildi */
+    height: auto; /* Yüksekliği içeriğe göre otomatik ayarlandı */
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px; /* Alt boşluk eklendi */
+  }
+
+  .welcome-box {
+    margin-top: 40px; /* Mobil için üst boşluk ayarlandı */
+    margin-bottom: 40px; /* Mobil için alt boşluk ayarlandı */
+    padding: 10px; /* Mobil için iç boşluk ayarlandı */
   }
 
   .welcome-text {
-    font-size: 20px;
-    padding: 0 15px;
+    font-size: 22px; /* Mobil için font boyutu küçültüldü */
+    line-height: 1.4; /* Okunabilirlik için satır yüksekliği eklendi */
   }
 
   .second-text {
-    font-size: 1.4rem;
-    padding: 0 15px;
+    font-size: 1.6rem; /* Mobil için font boyutu küçültüldü */
   }
 
-  #text-container {
-    width: 95%;
-    height: auto;
+  .meta-box {
+    /* Eğer meta-box da taşmaya neden oluyorsa veya mobil için ayarlanması gerekiyorsa */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 15px;
-    flex-direction: column;
-    text-align: center;
+  }
+
+  .social-media {
+    /* Footer yapınıza göre sosyal medya ikonlarının konumunu mobil için tekrar değerlendirin.
+       Gerekirse 'position: static;' yapıp normal akışa dahil edebilirsiniz veya
+       'bottom' gibi değerlerle footer'a göre daha iyi konumlandırabilirsiniz. */
+    position: relative; /* Örnek: Normal akışa almak için */
+    top: auto;
+    left: auto;
+    transform: none;
+    padding: 20px 0; /* Alt ve üst boşluk */
+    text-align: center; /* İkonları ortalamak için */
   }
 }
