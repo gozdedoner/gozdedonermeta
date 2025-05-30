@@ -1,3 +1,4 @@
+/* === GENEL TANIMLAR === */
 * {
   box-sizing: border-box;
 }
@@ -6,11 +7,10 @@ a {
   text-decoration: none;
 }
 
-/* Genel resim kuralı - taşmaları engellemek için */
 img {
   max-width: 100%;
   height: auto;
-  display: block; /* Resim altındaki olası boşlukları engeller */
+  display: block;
 }
 
 :root {
@@ -26,6 +26,13 @@ img {
   --clr-neutral-06: rgb(24, 21, 21);
 }
 
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
 header {
   background-color: var(--tertiary-color);
   font-family: "Poppins", sans-serif;
@@ -39,7 +46,6 @@ li {
   list-style: none;
 }
 
-/* a etiketi için renk tanımı :root sonrası daha uygun olabilir veya burada kalabilir */
 a {
   color: var(--clr-neutral-01);
 }
@@ -105,17 +111,30 @@ a {
   background-color: var(--secondry-color);
 }
 
+main {
+  min-height: 100vh;
+}
+
+footer {
+  background-color: var(--tertiary-color);
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
 .welcome-box {
   text-align: center;
   padding: 20px;
   position: relative;
-  margin: 80px auto; /* Mobil için bu margin medya sorgusunda ayarlanabilir */
+  margin: 80px auto;
 }
 
 .welcome-text {
   font-family: "Poppins", sans-serif;
   color: var(--clr-neutral-01);
-  font-size: 30px; /* Mobil için medya sorgusunda ayarlanacak */
+  font-size: 30px;
   margin-top: 20px;
   text-shadow: 1px 1px 2px var(--secondry-color);
   animation: fadeIn 2s ease-in-out;
@@ -141,7 +160,6 @@ a {
   text-align: center;
   font-family: "Poppins", sans-serif;
   color: var(--clr-neutral-02);
-  /* Mobil için genişlik veya margin ayarı gerekebilir */
 }
 
 .meta-box strong {
@@ -149,10 +167,10 @@ a {
 }
 
 #text-container {
-  width: 600px; /* Mobil için medya sorgusunda ayarlanacak */
-  height: 200px; /* Mobil için 'auto' veya farklı bir değer olabilir */
+  width: 600px;
+  height: 200px;
   margin: auto;
-  margin-top: 1%; /* Mobil için farklı bir değer olabilir */
+  margin-top: 1%;
   border: 2px solid var(--clr-neutral-03);
   box-shadow: 2px 2px 4px 4px var(--secondry-color);
   display: flex;
@@ -176,7 +194,7 @@ a {
 
 .second-text {
   color: var(--clr-neutral-01);
-  font-size: 2.2rem; /* Mobil için medya sorgusunda ayarlanacak */
+  font-size: 2.2rem;
   font-weight: bold;
   margin: 10px 0;
   text-shadow: 4px 4px 8px var(--secondry-color);
@@ -184,16 +202,10 @@ a {
 }
 
 .social-media {
-  position: absolute;
-  top: 93%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* Mobil için 'position' veya 'top' değeri değişebilir, footer'a göre ayarlanmalı */
-  /* width: 100%; // Eğer taşma yaparsa ikonların alt alta gelmesi için düzenlenebilir */
-}
-
-.social-media div {
-  display: inline; /* Ya da inline-block daha iyi kontrol sağlayabilir */
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .social-media div a {
@@ -203,18 +215,13 @@ a {
   background-color: var(--clr-neutral-06);
   font-size: 15px;
   color: var(--clr-neutral-02);
-  margin: 0 6px;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
   transition: 0.4s;
 }
 
-.social-media .facebook a:hover,
-.social-media .twitter a:hover,
-.social-media .instagram a:hover,
-.social-media .youtube a:hover,
-.social-media .linkedin a:hover {
+.social-media a:hover {
   background-color: var(--primary-color);
 }
 
@@ -226,14 +233,13 @@ a {
   transform: scale(1.6) rotate(360deg);
 }
 
-/* === Lightbox Modal === */
 #lightbox {
   display: none;
   position: fixed;
   z-index: 9999;
   top: 0;
   left: 0;
-  width: 100vw; /* Ya da width: 100%; height: 100%; */
+  width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   justify-content: center;
@@ -252,12 +258,11 @@ a {
   transform: scale(1.02);
 }
 
-/* === Hamburger Menü ve Mobil Görünüm === */
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 70px; /* Header yüksekliğine göre ayarlı olduğundan emin olun */
+    top: 70px;
     flex-direction: column;
     background-color: var(--tertiary-color);
     width: 100%;
@@ -289,17 +294,7 @@ a {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .nav-item {
-    width: 100%;
-  }
-
-  .nav-link {
-    display: block;
-    padding: 10px 0;
-  }
-
   .navbar {
-    margin-right: 0;
     padding: 0 15px;
   }
 
@@ -307,48 +302,42 @@ a {
     margin-left: 15px;
   }
 
-  /* Yatay kaymayı engellemek ve mobil uyumu artırmak için eklenen/düzenlenen stiller */
   #text-container {
-    width: 90%; /* Genişliği esnek hale getirildi */
-    height: auto; /* Yüksekliği içeriğe göre otomatik ayarlandı */
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px; /* Alt boşluk eklendi */
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    margin: 30px auto;
   }
 
   .welcome-box {
-    margin-top: 40px; /* Mobil için üst boşluk ayarlandı */
-    margin-bottom: 40px; /* Mobil için alt boşluk ayarlandı */
-    padding: 10px; /* Mobil için iç boşluk ayarlandı */
+    margin: 40px auto;
+    padding: 10px;
   }
 
   .welcome-text {
-    font-size: 22px; /* Mobil için font boyutu küçültüldü */
-    line-height: 1.4; /* Okunabilirlik için satır yüksekliği eklendi */
+    font-size: 22px;
+    line-height: 1.4;
   }
 
   .second-text {
-    font-size: 1.6rem; /* Mobil için font boyutu küçültüldü */
+    font-size: 1.6rem;
   }
 
   .meta-box {
-    /* Eğer meta-box da taşmaya neden oluyorsa veya mobil için ayarlanması gerekiyorsa */
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 15px;
   }
 
+  footer {
+    padding: 30px 0;
+  }
+
   .social-media {
-    /* Footer yapınıza göre sosyal medya ikonlarının konumunu mobil için tekrar değerlendirin.
-       Gerekirse 'position: static;' yapıp normal akışa dahil edebilirsiniz veya
-       'bottom' gibi değerlerle footer'a göre daha iyi konumlandırabilirsiniz. */
-    position: relative; /* Örnek: Normal akışa almak için */
-    top: auto;
-    left: auto;
-    transform: none;
-    padding: 20px 0; /* Alt ve üst boşluk */
-    text-align: center; /* İkonları ortalamak için */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 0;
   }
 }

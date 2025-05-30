@@ -3,7 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Metaverse</title>
+
+    <!-- SEO Etiketleri -->
+    <title>Anasayfa | Metaverse Dynamics</title>
+    <meta
+      name="description"
+      content="Gerçekliğin ötesine geçin. Metaverse Dynamics, dijital dünyada ilham verici projeler sunan bir platformdur."
+    />
+    <meta name="author" content="Gözde Döner" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Sosyal Medya (Open Graph) -->
+    <meta property="og:title" content="Metaverse Dynamics" />
+    <meta
+      property="og:description"
+      content="Metaverse projeleri, dijital tasarımlar ve yenilikçi deneyimler."
+    />
+    <meta
+      property="og:image"
+      content="https://gozdedonermeta.vercel.app/images/metaverse-icon.svg"
+    />
+    <meta property="og:url" content="https://gozdedonermeta.vercel.app/" />
+    <meta property="og:type" content="website" />
 
     <!-- CSS Dosyaları -->
     <link rel="stylesheet" href="/styles/reset.css" />
@@ -50,7 +71,8 @@
               src="images/metaverse-icon.svg"
               alt="metaverse-icon"
               class="metaverse-icon"
-            />METAVERSE
+            />
+            METAVERSE
           </a>
 
           <ul class="nav-menu">
@@ -120,14 +142,13 @@
         </div>
       </footer>
     </div>
-    <!-- root kapanışı -->
 
-    <!-- ✅ Lightbox Modal -->
+    <!-- Lightbox Modal -->
     <div id="lightbox" onclick="this.style.display='none'">
       <img id="lightbox-img" src="" alt="Expanded View" />
     </div>
 
-    <!-- ✅ Script -->
+    <!-- Script -->
     <script>
       function openLightbox(src) {
         const lightbox = document.getElementById("lightbox");
